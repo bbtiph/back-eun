@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  db:
+    image: 'postgres:13.1-alpine'
+    ports:
+      - 5446:5432
+    container_name: auth_db
+    environment:
+      - POSTGRES_USER=auth
+      - POSTGRES_PASSWORD=auth
+      - POSTGRES_DB=auth

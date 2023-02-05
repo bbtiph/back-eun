@@ -1,0 +1,37 @@
+server:
+  port: 8902
+  servlet:
+    context-path: /cameralcontrol
+
+spring:
+  application:
+    name: cameral-control
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:6432/eundb
+    username: ${DB_USER:evolutor-test}
+    password: ${DB_PASSWORD:ITefc2022%$}
+  jpa:
+    hibernate.ddl-auto: create
+    generate-ddl: true
+    show-sql: true
+
+
+reports:
+  relative:
+    path: reports/
+
+images:
+  relative:
+    path: images/
+
+os:
+  linux:
+    docker: true
+
+
+#mssql:
+#  url: jdbc:sqlserver://${DB_URL_MSSQL:localhost}:${DB_PORT_MSSQL:5446};database=nedb-migration;autoCommit=false;encrypt=true;trustServerCertificate=true
+#  username: ${DB_USER_MSSQL:auth}
+#  password: ${DB_PASSWORD_MSSQL:auth}
+
