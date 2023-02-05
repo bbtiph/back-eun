@@ -1,7 +1,7 @@
 package kz.dara.cameralcontrol.security.services;
 
 import kz.dara.cameralcontrol.model.User;
-import kz.dara.cameralcontrol.repository.LocalUserRepository;
+import kz.dara.cameralcontrol.repository.primaryDataSourse.LocalUserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

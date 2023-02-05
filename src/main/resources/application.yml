@@ -11,8 +11,13 @@ spring:
     url: jdbc:postgresql://localhost:6432/eundb
     username: ${DB_USER:evolutor-test}
     password: ${DB_PASSWORD:ITefc2022%$}
+  second-datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/eundbmysql
+    username: ${DB_USER:dwh}
+    password: ${DB_PASSWORD:ITefc2022%$}
   jpa:
-    hibernate.ddl-auto: create
+    hibernate.ddl-auto: update
     generate-ddl: true
     show-sql: true
 

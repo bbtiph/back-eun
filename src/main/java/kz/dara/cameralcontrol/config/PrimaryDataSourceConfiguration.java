@@ -22,7 +22,7 @@ import javax.sql.DataSource;
 @EnableJpaRepositories(
         entityManagerFactoryRef = "primaryEntityManagerFactory",
         transactionManagerRef = "primaryTransactionManager",
-        basePackages = {"kz.dara.cameralcontrol.repository"})
+        basePackages = {"kz.dara.cameralcontrol.repository.primaryDataSourse"})
 public class PrimaryDataSourceConfiguration {
     @Value("${spring.datasource.username}")
     String username;
@@ -35,7 +35,8 @@ public class PrimaryDataSourceConfiguration {
 
     @Bean
     @Primary
-    public DataSource dataSource() {
+    @ConfigurationProperties(prefix="spring.datasource")
+    public DataSource primaryDataSource() {
         return DataSourceBuilder.create().username(username)
                 .password(password).url(url)
                 .build();
@@ -47,7 +48,7 @@ public class PrimaryDataSourceConfiguration {
     public LocalContainerEntityManagerFactoryBean primaryEntityManagerFactory() {
 
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
-        entityManagerFactoryBean.setDataSource(dataSource());
+        entityManagerFactoryBean.setDataSource(primaryDataSource());
         entityManagerFactoryBean.setPersistenceProviderClass(HibernatePersistenceProvider.class);
         entityManagerFactoryBean.setPackagesToScan("kz.dara.cameralcontrol.model");
         return entityManagerFactoryBean;

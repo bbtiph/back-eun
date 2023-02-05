@@ -9,7 +9,9 @@ import javax.persistence.*;
 @Data
 public class Project {
     @Id
-    @Column(name = "id")
+    @Column(name = "project_id")
+    @SequenceGenerator(name = "userGenerator", sequenceName = "user_id_seq", allocationSize = 1)
+    @GeneratedValue(generator = "userGenerator", strategy = GenerationType.SEQUENCE)
     public Long Id;
 
     @Column(name = "status")
@@ -21,7 +23,7 @@ public class Project {
     @Column(name = "acronym")
     public String acronym;
 
-    @Column(name = "group_name")
+    @Column(name = "description")
     public String description;
 
 //    @Column(name = "period")
@@ -74,7 +76,7 @@ public class Project {
     @Column(name = "project_manager")
     public String erojectManager;
     @Column(name = "reference_number_of_project")
-    public int referenceNumberOfProject;
+    public Integer referenceNumberOfProject;
     @Column(name = "eun_team")
     public String eunTeam;
     @Column(name = "funding_id")

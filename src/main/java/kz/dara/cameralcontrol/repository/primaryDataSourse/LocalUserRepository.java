@@ -1,4 +1,4 @@
-package kz.dara.cameralcontrol.repository;
+package kz.dara.cameralcontrol.repository.primaryDataSourse;
 
 import kz.dara.cameralcontrol.model.User;
 import org.springframework.data.domain.Page;
